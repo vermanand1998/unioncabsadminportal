@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CABS Record</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 100%;
+            width: 50%; /* Adjust as needed for the desired width */
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 100px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"] {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #007BFF; /* Colorful border */
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            input[type="text"],
+            input[type="date"],
+            input[type="time"],
+            input[type="number"] {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>ADMIN LOGIN</h2>
+    <form method="post" name="google-sheet">
+        <label for="driverId">User Name:</label>
+        <input type="text" id="driverId" name="name" required>
+
+        <label for="carNumber">Email:</label>
+        <input type="text" id="carNumber" name="carNumber" required>
+
+        <label for="driverName">Password:</label>
+        <input type="text" id="driverName" name="pass" required>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+<script>
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+        formDataObject[key] = value;
+        });
+        console.log(formDataObject);
+        if(formDataObject.driverId=='SACHIN123'){
+            window.location.href = 'http://localhost:4200/dashboard';
+        }else{
+            alert("Please Enter Valid Credentials!");
+            form.reset();
+        }
+    });
+</script>
+</html>
